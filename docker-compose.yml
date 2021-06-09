@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    build:
+      dockerfile: ./docker/node.dockerfile
+      context: .
+    volumes:
+      - .:/app
+    container_name: node
+    ports:
+      - "5759:3000"
+    depends_on:
+      - "postgres"
+  database:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: db_projeto
+      PGDATA: /data/postgres
+    ports:
+      - "5434:5432"
+    networks:
+      - projeto-network
+    restart: unless-stopped
+
+networks:
+  projeto-network:
+    driver: bridge

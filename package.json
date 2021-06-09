@@ -1,0 +1,22 @@
+{
+  "name": "projeto-with-docker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev  --ignore-watch node_modules app/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "typeorm": "^0.2.34"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.12",
+    "@types/node": "^15.12.2",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.3.2"
+  }
+}
